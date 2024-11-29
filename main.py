@@ -23,8 +23,9 @@ def show_main_menu():
     print("1. Data Pasien")
     print("2. Jadwal Dokter")
     print("3. Konsul dan Diagnosa")
-    print("4. Resep Obat")
-    print("5. Pembayaran")
+    print("4. Ruang Rawat Inap")
+    print("5. Resep Obat")
+    print("6. Pembayaran")
     print("\nPress ESC to exit")
 
 def data_pasien_menu():
@@ -113,8 +114,10 @@ def main_menu():
         elif key == '3':
             konsul_dan_diagnosa()
         elif key == '4':
-            resep_obat()
+            menu_kamar()
         elif key == '5':
+            resep_obat()
+        elif key == '6':
             pembayaran()
         elif key == '\x1b':  # ESC key
             print("Exiting program...")
@@ -193,6 +196,75 @@ def konsul_dan_diagnosa():
     except Exception as e:
         print(f"Error: {e}")
         input("Press Enter to continue...")
+
+def tampilkan_kamar(df):
+        print("\nStatus Kamar:")
+        print(df.to_string(index=False))
+
+def check_in(df, nama_pasien, nomor_kamar):
+    indeks_kamar = df[df["Nomor Kamar"] == nomor_kamar].index
+    if not indeks_kamar.empty:
+        indeks = indeks_kamar[0]
+        if df.at[indeks, "Status"] == "Kosong":
+            df.at[indeks, "Status"] = "Terisi"
+            df.at[indeks, "Nama Pasien"] = nama_pasien
+            df.to_csv("data_kamar.csv", index=False)
+            print(f"Pasien '{nama_pasien}' telah check-in ke kamar {nomor_kamar}.")
+        else:
+            print(f"Kamar {nomor_kamar} sudah terisi.")
+    else:
+        print("Nomor kamar tidak valid.")
+
+def check_out(df, nomor_kamar):
+    indeks_kamar = df[df["Nomor Kamar"] == nomor_kamar].index
+    if not indeks_kamar.empty:
+        indeks = indeks_kamar[0]
+        if df.at[indeks, "Status"] == "Terisi":
+            df.at[indeks, "Status"] = "Kosong"
+            df.at[indeks, "Nama Pasien"] = "Kosong"
+            df.to_csv("data_kamar.csv", index=False)
+            print(f"Kamar {nomor_kamar} sekarang kosong.")
+        else:
+            print(f"Kamar {nomor_kamar} sudah kosong.")
+    else:
+        print("Nomor kamar tidak valid.")
+
+def menu_kamar():
+    daftar_kamar = pd.read_csv("data_kamar.csv")
+    while True:
+        print("\nMenu:")
+        print("1. Tampilkan Status Kamar")
+        print("2. Check-In Pasien")
+        print("3. Check-Out Kamar")
+        print("4. Keluar")
+
+        pilihan = input("Pilih opsi: ")
+
+        if pilihan == "1":
+            tampilkan_kamar(daftar_kamar)
+
+        elif pilihan == "2":
+            nama_pasien = input("Masukkan nama pasien: ")
+            try:
+                nomor_kamar = int(input("Masukkan nomor kamar yang diinginkan: "))
+                check_in(daftar_kamar, nama_pasien, nomor_kamar)
+            except ValueError:
+                print("Input tidak valid. Masukkan nomor kamar yang benar.")
+
+        elif pilihan == "3":
+            try:
+                nomor_kamar = int(input("Masukkan nomor kamar untuk check-out: "))
+                check_out(daftar_kamar, nomor_kamar)
+            except ValueError:
+                print("Input tidak valid. Masukkan nomor kamar yang benar.")
+
+        elif pilihan == "4":
+            print("Program selesai.")
+            break
+
+        else:
+            print("Pilihan tidak valid. Silakan coba lagi.")
+
 
 def resep_obat():
     global queue
