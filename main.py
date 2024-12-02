@@ -43,10 +43,6 @@ def login_processing(username, password, keyring_path='keyring.csv'):
     
     user_row = df[df['username'] == username]
     
-    if user_row.empty:
-        print("Username not found.")
-        return False
-    
     input_hash = hash_password(password)
     role = user_row['role'].values[0]
     
