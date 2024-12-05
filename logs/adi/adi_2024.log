@@ -1,0 +1,62 @@
+2024-12-06 01:16:20 - INFO - User Login - username: adi, role: admin
+2024-12-06 01:16:20 - ERROR - Unexpected Error: main_menu() missing 1 required positional argument: 'user'
+2024-12-06 01:18:05 - INFO - User Login - username: adi, role: admin
+2024-12-06 01:18:05 - ERROR - Unexpected Error: main_menu() missing 1 required positional argument: 'user'
+2024-12-06 01:20:41 - INFO - User Login - username: adi, role: admin
+2024-12-06 01:20:41 - ERROR - Unexpected Error: main_menu() missing 1 required positional argument: 'user'
+2024-12-06 01:21:15 - INFO - User Login - username: adi, role: admin
+2024-12-06 01:21:15 - ERROR - Unexpected Error: main_menu() missing 1 required positional argument: 'user'
+2024-12-06 01:25:27 - INFO - User Login - username: adi, role: admin
+2024-12-06 01:28:07 - ERROR - Login Error: 
+2024-12-06 02:24:12 - INFO - User Login - username: adi, role: admin
+2024-12-06 02:25:06 - INFO - User Login - username: adi, role: admin
+2024-12-06 03:46:23 - INFO - User Login - username: adi, role: admin
+2024-12-06 03:46:30 - INFO - Patient Removed Successfully - Index: 0, Removed Patient Details: {'Nama': 'adi cahyo misphoenix', 'Nik': 1231231231231231, 'umur': 19, 'date': '11-25 07:09', 'diagnosa': nan, 'obat': 5000.0, 'ruangan': nan}
+2024-12-06 03:52:47 - INFO - User Login - username: adi, role: admin
+2024-12-06 03:53:04 - INFO - Patient Added to Queue - Name: adi, NIK: 2424101020891000, Umur: 20, Time: 12-06 03:53
+2024-12-06 03:56:20 - INFO - User Login - username: adi, role: admin
+2024-12-06 03:56:28 - INFO - Patient Removed Successfully - Index: 0, Removed Patient Details: {'Nama': 'adi', 'Nik': 2424101020891000, 'umur': 20, 'date': '12-06 03:53', 'diagnosa': nan, 'obat': nan, 'ruangan': nan}
+2024-12-06 04:02:46 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:04:05 - INFO - Patient Added to Queue - Name: adi cahyo, NIK: 2424101020801000, Umur: 20, Time: 12-06 04:04
+2024-12-06 04:04:11 - INFO - opened doctor schedule
+2024-12-06 04:10:20 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:10:33 - ERROR - Unexpected Error: log_management() takes 0 positional arguments but 1 was given
+2024-12-06 04:11:43 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:11:45 - ERROR - Unexpected Error: log_management() takes 0 positional arguments but 1 was given
+2024-12-06 04:12:22 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:15:59 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:19:03 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:19:37 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:21:42 - ERROR - Unexpected Error: Invalid file path or buffer object type: <class 'logging.Logger'>
+2024-12-06 04:21:56 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:22:00 - ERROR - Unexpected Error: Invalid file path or buffer object type: <class 'logging.Logger'>
+2024-12-06 04:23:23 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:23:37 - ERROR - Unexpected Error: Invalid file path or buffer object type: <class 'logging.Logger'>
+2024-12-06 04:27:31 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:27:35 - ERROR - Unexpected Error: cannot access local variable 'new_user' where it is not associated with a value
+2024-12-06 04:29:53 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:29:59 - ERROR - Unexpected Error: cannot access local variable 'new_user' where it is not associated with a value
+2024-12-06 04:30:43 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:31:27 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:31:48 - ERROR - Unexpected Error: menu_kamar() takes 0 positional arguments but 1 was given
+2024-12-06 04:32:34 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:32:41 - ERROR - Unexpected Error: menu_kamar() takes 0 positional arguments but 1 was given
+2024-12-06 04:33:38 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:33:40 - ERROR - Unexpected Error: menu_kamar() takes 0 positional arguments but 1 was given
+2024-12-06 04:34:09 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:34:33 - ERROR - Unexpected Error: print() got an unexpected keyword argument 'headers'
+2024-12-06 04:35:46 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:36:58 - ERROR - Unexpected Error: main_menu() missing 1 required positional argument: 'logger'
+2024-12-06 04:37:40 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:37:53 - ERROR - Unexpected Error: main_menu() missing 1 required positional argument: 'logger'
+2024-12-06 04:38:40 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:40:21 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:42:25 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:42:45 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:43:44 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:51:22 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:53:59 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:55:06 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:55:59 - INFO - User Login - username: adi, role: admin
+2024-12-06 04:56:34 - ERROR - Unexpected Error: invalid literal for int() with base 10: '& C:/Users/Administrator/scoop/apps/python/current/python.exe f:/project/SIMARIS/main.py'
+2024-12-06 04:58:40 - INFO - User Login - username: adi, role: admin

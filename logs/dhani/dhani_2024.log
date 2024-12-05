@@ -1,0 +1,74 @@
+2024-12-05 18:14:23 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 18:18:51 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 18:20:08 - ERROR - Unexpected Error: 'utf-8' codec can't decode byte 0xe0 in position 0: unexpected end of data
+2024-12-05 20:01:04 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:34:54 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:38:26 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:39:38 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:40:51 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:41:47 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:43:39 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:45:03 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:46:30 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:47:28 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:47:58 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:49:33 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:50:40 - ERROR - Unexpected Error: atur_resep_obat() missing 1 required positional argument: 'nik_pasien'
+2024-12-05 21:52:05 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:52:48 - ERROR - Unexpected Error: atur_resep_obat() missing 1 required positional argument: 'nik_pasien'
+2024-12-05 21:57:45 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 21:59:25 - ERROR - Unexpected Error: 'nik'
+2024-12-05 22:25:20 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:26:47 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:27:06 - ERROR - Unexpected Error: 'nik'
+2024-12-05 22:27:50 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:28:01 - ERROR - Unexpected Error: 'name'
+2024-12-05 22:28:31 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:28:35 - ERROR - Unexpected Error: 'umur'
+2024-12-05 22:29:05 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:29:30 - ERROR - Unexpected Error: 'name'
+2024-12-05 22:30:27 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:32:58 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:35:49 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:41:15 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:41:50 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:42:48 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:44:53 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:46:45 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:46:45 - ERROR - Unexpected Error: login_dokter() missing 1 required positional argument: 'username'
+2024-12-05 22:47:14 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:50:48 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 22:51:34 - INFO - User Login - username: dhani, role: dokter
+2024-12-05 23:45:36 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 04:59:21 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:00:24 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:02:18 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:06:56 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:09:36 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:12:01 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:13:31 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:14:34 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:15:25 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:17:31 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:18:41 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:21:55 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:24:14 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:26:05 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:27:53 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:29:43 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:30:07 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:32:46 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:33:33 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:34:19 - ERROR - Unexpected Error: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'logs\\& C:'
+2024-12-06 05:34:39 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:35:33 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:37:35 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:40:27 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:42:33 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:43:00 - ERROR - Unexpected Error: Index([1], dtype='int64')
+2024-12-06 05:43:42 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:47:22 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:47:52 - ERROR - Unexpected Error: "['Tipe Kamar'] not in index"
+2024-12-06 05:48:32 - INFO - User Login - username: dhani, role: dokter
+2024-12-06 05:48:44 - ERROR - Unexpected Error: "['Tipe Kamar'] not in index"
+2024-12-06 05:51:39 - INFO - User Login - username: dhani, role: dokter
