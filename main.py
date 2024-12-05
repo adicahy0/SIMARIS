@@ -471,11 +471,11 @@ def pembayaran():
     input("Press Enter to continue...")
 #fitur 7
 def add_user(keyring_path='keyring.csv'):
-    username = input()
+    username = input( "username")
     df = load_credentials(keyring_path)
     if not df[df['username'] == username].empty:
         print(f"Userame {username} sudah ada")
-    password = input() #add that usual check where the user inputs twice and checks if they are the same then hash it
+    password = input("password") #add that usual check where the user inputs twice and checks if they are the same then hash it
     password_hash = hash_password(password)
     print ('role')
     print ("1.admin")
@@ -738,4 +738,4 @@ def dokter_menu(x):
 #if __name__ == "__main__":
 #    main_menu()
 if __name__ == "__main__":
-    login_menu
+    add_user()
