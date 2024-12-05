@@ -80,80 +80,6 @@ def log_user_error(logger, error, details=None):
     
     logger.error(log_message)
 
-# Example implementation in login function
-def login_with_logging():
-    username = input("Username: ")
-    password = getpass.getpass("Password: ")  # More secure password input
-    
-    # Setup logging for this user session
-    user_logger = setup_user_logging(username)
-    
-    try:
-        role = login_processing(username, password)
-        
-        if role:
-            # Log successful login
-            log_user_action(user_logger, "User Login", {
-                "username": username, 
-                "role": role
-            })
-            
-            if role == 'admin':
-                main_menu(user_logger)
-            elif role == 'dokter':
-                dokter_menu(user_logger)
-        else:
-            # Log failed login attempt
-            log_user_error(user_logger, "Login Failed", {
-                "username": username
-            })
-    
-    except Exception as e:
-        # Log any unexpected errors
-        log_user_error(user_logger, f"Unexpected Error: {str(e)}")
-
-# Example of how logging would be used in other functions
-def add_patient(logger, patient_details):
-    try:
-        # Patient addition logic
-        log_user_action(logger, "Patient Added", patient_details)
-    except Exception as e:
-        log_user_error(logger, "Patient Addition Failed", {
-            "error": str(e),
-            "patient_details": patient_details
-        })
-
-# Utility function to clean up or archive old log files
-def manage_log_files(username, max_years=3):
-    """
-    Manage log files for a user, potentially archiving or deleting old logs
-    
-    Args:
-        username (str): Username to manage logs for
-        max_years (int): Number of years to keep logs
-    """
-    logs_dir = os.path.join('logs', username)
-    current_year = datetime.now().year
-    
-    for filename in os.listdir(logs_dir):
-        try:
-            # Extract year from filename
-            file_year = int(filename.split('_')[-1].split('.')[0])
-            
-            # If log is older than max_years, you could move to archive or delete
-            if current_year - file_year > max_years:
-                # Example: Move to an archive directory
-                archive_dir = os.path.join(logs_dir, 'archive')
-                os.makedirs(archive_dir, exist_ok=True)
-                os.rename(
-                    os.path.join(logs_dir, filename),
-                    os.path.join(archive_dir, filename)
-                )
-        except (ValueError, IndexError):
-            # Skip files that don't match expected naming pattern
-            continue
-
-
 # tools
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
@@ -212,7 +138,6 @@ def login_processing(username, password, keyring_path='keyring.csv'):
     if input_hash == user_row['password_hash'].values[0]:
         print("Login successful!")
         return role
-    else:
         print("Incorrect password.")
         return False
     
@@ -234,10 +159,11 @@ def login(keyring_path='keyring.csv'):
                 "username": username, 
                 "role": role })
             if role == 'admin':
-                
                 main_menu()
-            elif role == 'doktor':
-                print ("masukin menu doktor dani")
+            elif role == 'dokter':
+                dokter_menu(username)
+    except Exception as e:
+        log_user_error(user_logger, f"Unexpected Error: {str(e)}")
     except Exception as e:
         log_user_error(user_logger, f"Unexpected Error: {str(e)}")
     
@@ -301,7 +227,7 @@ def data_pasien_menu():
     print("4. Lihat Daftar Pasien")
     print("\nPress ESC to return to main menu")
 
-def antrian():
+def antrian(logger):
     global queue
     clear_screen()
     print("\n=== Tambah Pasien ===")
@@ -330,10 +256,15 @@ def antrian():
             gender = input("Gender (F/M): ").upper()
             if gender not in ["F", "M"]:
                 print("Gender harus diisi dengan F atau M (kapital).")
-                continue
 
             current_time = datetime.now()
             waktu = input("Waktu (MM-DD HH:MM) [default: sekarang]: ") or current_time.strftime("%m-%d %H:%M")
+            log_user_action(logger, "Patient Added to Queue", {
+                "Name": Nama,
+                "NIK": NIK,
+                "Gender": gender,
+                "Time": waktu
+            })
 
             temp = pd.DataFrame({
                 'Nama': [Nama],
@@ -352,7 +283,9 @@ def antrian():
 
         except Exception as e:
             print(f"Error: {e}")
-
+            log_user_error(logger, f"Unexpected Error in Antrian", {
+                "error": str(e)})
+            
 def handle_data_pasien():
     show_main_menu
     while True:
@@ -379,53 +312,64 @@ def show_data_pasien_menu():
     print("\nPress ESC to return to main menu")
     handle_data_pasien()
 
-def show_remove_patient():
+def show_remove_patient(logger):
     global queue
     clear_screen()
     print("\n=== Hapus Pasien ===")
     print(queue)
     try:
         index_antrian = int(input("Enter index to remove: "))
+        patient_to_remove = queue.loc[index_antrian].to_dict()
         queue = queue.drop(index=index_antrian).reset_index(drop=True)
+        log_user_action(logger, "Patient Removed Successfully", {
+            "Index": index_antrian,
+            "Removed Patient Details": patient_to_remove
+         })
         queue.to_csv('queue.csv', index=False)
         print("Patient removed successfully")
-        input("Press Enter to continue...")
+        
+        pause()
     except Exception as e:
         print(f"Error: {e}")
-        input("Press Enter to continue...")
+        pause()
 
-def show_edit_patient():
+def show_edit_patient(logger):
     global queue
     clear_screen()
     print("\n=== Edit Pasien ===")
-    print(queue)
+    print(queue, logger)
     try:
         index_x = int(input("Enter row index: "))
         index_y = int(input("Enter column index: "))
+        old_value = queue.iloc[index_x, index_y]
         new_value = input("Enter new value: ") or queue.iloc[index_x, index_y]
-        queue.iat[index_x, index_y] = new_value
+        queue.iat[index_x, index_y] =  new_value
         queue.to_csv('queue.csv', index=False)
+        log_user_action(logger, "patient data edited successfully", {"old dvalue": old_value,"new value": new_value})
         print("Patient data updated successfully")
-        input("Press Enter to continue...")
+        pause()
     except Exception as e:
+        log_user_error(logger, f"Unexpected Error in Antrian", {
+                "error": str(e)})
         print(f"Error: {e}")
-        input("Press Enter to continue...")
-
-def show_patient_list():
+        pause()
+def show_patient_list(logger):
     clear_screen()
     print("\n=== Daftar Pasien ===")
     print(queue)
     input("\nPress Enter to continue...")
+    log_user_action(logger, "opened patient list")
 
-def show_doctor_schedule():
+def show_doctor_schedule(logger):
     try:
         with open('jadwal_dokter.csv', 'r') as f:
             print(f.read())
+            log_user_action(logger, "opened doctor schedule")
     except FileNotFoundError:
-        print("Jadwal dokter tidak tersedia.")
-    input("\nPress Enter to continue...")
+        log_user_action(logger, "doctor schedule not found")
+    pause()
 
-def konsul_dan_diagnosa():
+def konsul_dan_diagnosa(logger):
     global queue
     clear_screen()
     print("\n=== Konsul dan Diagnosa ===")
@@ -436,19 +380,21 @@ def konsul_dan_diagnosa():
         diagnosa = input("Masukkan diagnosa: ")
         queue.loc[index, 'diagnosa'] = diagnosa
         queue.to_csv('queue.csv', index=False)
+        log_user_action(logger, "patient data edited successfully", {"nomor pasien": index,"diagnosa": diagnosa})
         print("Diagnosa berhasil ditambahkan")
         input("Press Enter to continue...")
     except Exception as e:
         print(f"Error: {e}")
-        input("Press Enter to continue...")
+        pause()
 
 #fitur 4
 
-def tampilkan_kamar(df):
+def tampilkan_kamar(df,logger):
         print("\nStatus Kamar:")
         print(df.to_string(index=False))
+        log_user_action(logger, "opened room data")
 
-def check_in(df, nama_pasien, nomor_kamar):
+def check_in(df, nama_pasien, nomor_kamar, logger):
     indeks_kamar = df[df["Nomor Kamar"] == nomor_kamar].index
     if not indeks_kamar.empty:
         indeks = indeks_kamar[0]
@@ -457,6 +403,7 @@ def check_in(df, nama_pasien, nomor_kamar):
             df.at[indeks, "Nama Pasien"] = nama_pasien
             df.to_csv("data_kamar.csv", index=False)
             print(f"Pasien '{nama_pasien}' telah check-in ke kamar {nomor_kamar}.")
+            log_user_action(logger, "pasien berhasil di check in",{"nama pasien": nama_pasien, "kamar": nomor_kamar } )
         else:
             print(f"Kamar {nomor_kamar} sudah terisi.")
     else:
@@ -478,6 +425,7 @@ def check_out(df, nomor_kamar):
 
 def menu_kamar():
     daftar_kamar = pd.read_csv("data_kamar.csv")
+    pilihan = getch()
     while True:
         print("\nMenu:")
         print("1. Tampilkan Status Kamar")
@@ -485,32 +433,19 @@ def menu_kamar():
         print("3. Check-Out Kamar")
         print("4. Keluar")
 
-        pilihan = input("Pilih opsi: ")
-
         if pilihan == "1":
             tampilkan_kamar(daftar_kamar)
 
         elif pilihan == "2":
-            nama_pasien = input("Masukkan nama pasien: ")
-            try:
-                nomor_kamar = int(input("Masukkan nomor kamar yang diinginkan: "))
-                check_in(daftar_kamar, nama_pasien, nomor_kamar)
-            except ValueError:
-                print("Input tidak valid. Masukkan nomor kamar yang benar.")
-
-        elif pilihan == "3":
             try:
                 nomor_kamar = int(input("Masukkan nomor kamar untuk check-out: "))
                 check_out(daftar_kamar, nomor_kamar)
             except ValueError:
                 print("Input tidak valid. Masukkan nomor kamar yang benar.")
 
-        elif pilihan == "4":
-            print("Program selesai.")
+        elif pilihan == '\x1b':  # ESC
             break
-
-        else:
-            print("Pilihan tidak valid. Silakan coba lagi.")
+        main_menu()
 
 #fitur 5
 
@@ -694,6 +629,110 @@ def handle_payment():
         )
         console.print(Align.center(struk))
     pause()
+
+#dokter
+def login_dokter(username):
+    dokter = username
+    print(f"Selamat datang, {dokter}!")
+    return dokter
+
+def lihat_dan_edit_jadwal(id_dokter):
+    df_jadwal = pd.read_csv("jadwal_dokter.csv")
+    jadwal_dokter = df_jadwal[df_jadwal["ID Dokter"] == id_dokter]
+    
+    if jadwal_dokter.empty:
+        print("Tidak ada jadwal untuk dokter ini.")
+    else:
+        print("\nJadwal Anda:")
+        print(jadwal_dokter.to_string(index=False))
+
+        edit = input("\nApakah Anda ingin mengedit jadwal? (y/n): ").lower()
+        if edit == "y":
+            id_jadwal = int(input("Masukkan ID Jadwal yang ingin diubah: "))
+            jadwal_baru = input("Masukkan jadwal baru: ")
+            df_jadwal.loc[df_jadwal["ID Dokter"] == id_dokter, "Jadwal"] = jadwal_baru
+            df_jadwal.to_csv("jadwal_dokter", index=False)
+            print("Jadwal berhasil diperbarui.")
+        else:
+            print("Jadwal tidak diubah.")
+
+def diagnosa_pasien():
+    df_pasien = pd.read_csv("pasien.csv")
+    nik_pasien = int(input("Masukkan NIK Pasien: "))
+    pasien = df_pasien[df_pasien["nik"] == nik_pasien]
+    
+    if pasien.empty:
+        print("Pasien tidak ditemukan.")
+        return
+    
+    print(f"\nData Pasien: {pasien.iloc[0]['name']}, Umur: {pasien.iloc[0]['age']}")
+
+    diagnosa = input("Masukkan Diagnosa: ")
+    tindakan = input("Masukkan Tindakan (Rawat Inap/Resep Obat): ").lower()
+
+    df_diagnosa = pd.read_csv("data_diagnosa.csv")
+    new_diagnosa = pd.DataFrame({
+        "NIK Pasien": [nik_pasien],
+        "Diagnosa": [diagnosa],
+        "Tindakan": [tindakan.capitalize()]
+    })
+    df_diagnosa = pd.concat([df_diagnosa, new_diagnosa], ignore_index=True)
+    df_diagnosa.to_csv("data_diagnosa.csv", index=False)
+
+    print(f"Diagnosa untuk pasien {pasien.iloc[0]['name']} telah dicatat.")
+
+    if tindakan == "rawat inap":
+        atur_rawat_inap()
+    elif tindakan == "resep obat":
+        atur_resep_obat()
+    else:
+        print("Tindakan tidak dikenali.")
+
+def atur_rawat_inap(nama_pasien):
+    df_rawat_inap = pd.read_csv("data_kamar.csv")
+    print("\nDaftar Kamar Rawat Inap:")
+    print(df_rawat_inap.to_string(index=False))
+    
+    nomor_kamar = int(input("\nMasukkan Nomor Kamar untuk rawat inap: "))
+    kamar = df_rawat_inap[df_rawat_inap["Nomor Kamar"] == nomor_kamar]
+    
+    if not kamar.empty:
+        indeks = kamar[0]
+        if kamar.at[indeks, "Status"] == "Kosong":
+            kamar.at[indeks, "Status"] = "Terisi"
+            kamar.at[indeks, "Nama Pasien"] = nama_pasien
+            kamar.to_csv("data_kamar.csv", index=False)
+            print(f"Pasien '{nama_pasien}' telah check-in ke kamar {nomor_kamar}.")
+        else:
+            print(f"Kamar {nomor_kamar} sudah terisi.")
+    else:
+        print("Nomor kamar tidak valid.")
+
+def atur_resep_obat():
+    obat = input("Masukkan nama obat yang diresepkan: ")
+    dosis = input("Masukkan dosis obat: ")
+    durasi = input("Masukkan durasi penggunaan obat (misal: 5 hari): ")
+
+    print(f"Resep obat untuk pasien: {obat}, Dosis: {dosis}, Durasi: {durasi} telah dicatat.")
+
+
+def dokter_menu(x):
+    login_dokter(x)
+    pilihan = getch()
+
+    while True:
+        print("\nMenu:")
+        print("1. Lihat dan Edit Jadwal Dokter")
+        print("2. Mendiagnosa Pasien")
+        print("Tekan ESC untuk keluar")
+        
+        if pilihan == "1":
+            lihat_dan_edit_jadwal(x)
+        elif pilihan == "2":
+            diagnosa_pasien()
+        elif pilihan == "\x1b" :
+            break
+        login(keyring_path='keyring.csv')
 
 # jaga jaga buat debug biar gk login melulu
 #if __name__ == "__main__":
