@@ -791,21 +791,6 @@ def edit_data(data,logger):
         log_user_error(logger, f"Unexpected Error in {data}", {
                 "error": str(e)})
         print(f"Error: {e}")
-
-
-def jadwal_dokter_menu(logger):
-    while True:
-        header("J A D W A L   D O K T O R")
-        try:
-            jadwal_dokter= pd.read_csv("jadwal_dokter.csv")
-            print (tabulate(jadwal_dokter, headers="firstrow", tablefmt="fancy_grid"))
-            log_user_action(logger, f"admin buka jadwal doktor")
-            print("tekan ESC untuk keluar")
-            key = getch()
-            if key == '\x1b':
-                break
-        except :
-            print ("error")
             
 #fitur 2
 
@@ -1085,6 +1070,7 @@ def diagnosa_pasien(logger):
     log_medical_entry(nik_pasien, f"pasien tediagnosis: {diagnosa}")
     x= df_antrian.at[nik_pasien, "Diagnosa"] = diagnosa
     x.to_csv("queue.csv")
+    log_user_action(logger, f"pasien dengan nik: {nik_pasien} di diagnosa : {diagnosa}")
     print(f"Diagnosa untuk pasien {df_antrian.at[pasien[0], 'Nama']} telah dicatat.")    
     key = getch()
     print("1.Rawat Inap")
@@ -1164,7 +1150,7 @@ def dokter_menu(username,logger):
 
         pilihan = getch()
         if pilihan == "1":
-            lihat_dan_edit_jadwal(username,logger)
+            lihat_dan_edit_jadwal(username)
         elif pilihan == "2":
             diagnosa_pasien(logger)
         elif pilihan == "\x1b" :
