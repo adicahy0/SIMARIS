@@ -60,3 +60,39 @@
 2024-12-06 04:55:59 - INFO - User Login - username: adi, role: admin
 2024-12-06 04:56:34 - ERROR - Unexpected Error: invalid literal for int() with base 10: '& C:/Users/Administrator/scoop/apps/python/current/python.exe f:/project/SIMARIS/main.py'
 2024-12-06 04:58:40 - INFO - User Login - username: adi, role: admin
+2024-12-08 15:09:45 - ERROR - Unexpected Error: input() takes no keyword arguments
+2024-12-08 15:11:27 - INFO - User Login - username: adi, role: admin
+2024-12-08 15:12:36 - INFO - User Login - username: adi, role: admin
+2024-12-08 15:18:47 - INFO - User Login - username: adi, role: admin
+2024-12-08 20:55:16 - INFO - User Login - username: adi, role: admin
+2024-12-08 20:55:56 - INFO - Patient Added to Queue - Name: adi, NIK: 2424101020202020, Umur: 20, Time: 12-08 20:55
+2024-12-08 20:57:03 - INFO - User Login - username: adi, role: admin
+2024-12-08 20:57:40 - INFO - Patient Added to Queue - Name: adi, NIK: 2424242424242424, Umur: 20, Time: 12-08 20:57
+2024-12-08 20:58:52 - INFO - User Login - username: adi, role: admin
+2024-12-08 21:00:26 - INFO - User Login - username: adi, role: admin
+2024-12-08 21:04:35 - INFO - User Login - username: adi, role: admin
+2024-12-09 00:26:09 - INFO - User Login - username: adi, role: admin
+2024-12-09 00:39:45 - INFO - User Login - username: adi, role: admin
+2024-12-09 00:54:42 - INFO - User Login - username: adi, role: admin
+2024-12-09 01:01:54 - INFO - User Login - username: adi, role: admin
+2024-12-09 01:02:07 - INFO - Patient Added to Queue - Name: adi, NIK: 2424101020891000, Umur: 20, Time: 12-09 01:02
+2024-12-09 01:02:39 - INFO - Patient Added to Queue - Name: adi, NIK: 2424101020891000, Umur: 20, Time: 12-09 01:02
+2024-12-09 08:42:13 - INFO - User Login - username: adi, role: admin
+2024-12-09 08:42:45 - ERROR - Unexpected Error: [Errno 2] No such file or directory: 'processsing.csv'
+2024-12-09 08:43:25 - INFO - User Login - username: adi, role: admin
+2024-12-09 08:44:00 - ERROR - Unexpected Error: tabulate() got an unexpected keyword argument 'header'. Did you mean 'headers'?
+2024-12-09 08:53:21 - INFO - User Login - username: adi, role: admin
+2024-12-09 08:53:37 - ERROR - Unexpected Error: "None of [Index([4], dtype='int64')] are in the [index]"
+2024-12-09 08:54:35 - INFO - User Login - username: adi, role: admin
+2024-12-09 08:58:21 - INFO - User Login - username: adi, role: admin
+2024-12-09 09:00:46 - INFO - User Login - username: adi, role: admin
+2024-12-09 09:15:37 - INFO - User Login - username: adi, role: admin
+2024-12-09 09:30:44 - INFO - User Login - username: adi, role: admin
+2024-12-09 09:36:33 - INFO - User Login - username: adi, role: admin
+2024-12-09 09:36:44 - INFO - User Login - username: adi, role: admin
+2024-12-09 09:40:56 - ERROR - Unexpected Error: tabulate() got an unexpected keyword argument 'header'. Did you mean 'headers'?
+2024-12-09 09:41:43 - INFO - User Login - username: adi, role: admin
+2024-12-09 09:41:47 - ERROR - Unexpected Error: tabulate() got an unexpected keyword argument 'header'. Did you mean 'headers'?
+2024-12-09 09:42:09 - INFO - User Login - username: adi, role: admin
+2024-12-09 09:42:20 - ERROR - Unexpected Error: tabulate() got an unexpected keyword argument 'header'. Did you mean 'headers'?
+2024-12-09 09:44:02 - INFO - User Login - username: adi, role: admin

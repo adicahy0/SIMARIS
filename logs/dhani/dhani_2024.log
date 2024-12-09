@@ -72,3 +72,40 @@
 2024-12-06 05:48:32 - INFO - User Login - username: dhani, role: dokter
 2024-12-06 05:48:44 - ERROR - Unexpected Error: "['Tipe Kamar'] not in index"
 2024-12-06 05:51:39 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:23:31 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:26:30 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:26:35 - ERROR - Unexpected Error: cannot access local variable 'pasien' where it is not associated with a value
+2024-12-09 00:28:16 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:34:34 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:36:19 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:40:19 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:42:06 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:48:36 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:51:47 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:52:51 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:52:59 - ERROR - Unexpected Error: 1
+2024-12-09 00:53:49 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:53:52 - ERROR - Unexpected Error: 1
+2024-12-09 00:54:50 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:54:57 - ERROR - Unexpected Error: 1
+2024-12-09 00:56:19 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:58:55 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:59:12 - ERROR - Unexpected Error: Can only use .str accessor with string values!
+2024-12-09 01:00:03 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:00:07 - ERROR - Unexpected Error: Can only use .str accessor with string values!
+2024-12-09 01:05:16 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:05:29 - ERROR - Unexpected Error: Can only use .str accessor with string values!
+2024-12-09 01:16:23 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:17:35 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:18:24 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:24:54 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:28:49 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:29:28 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:30:06 - ERROR - Unexpected Error: 'utf-8' codec can't decode byte 0xe0 in position 0: unexpected end of data
+2024-12-09 01:30:18 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:37:12 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 01:40:50 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 09:02:01 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 09:02:45 - ERROR - Unexpected Error: invalid literal for int() with base 10: ''
+2024-12-09 09:02:57 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 09:14:15 - INFO - User Login - username: dhani, role: dokter

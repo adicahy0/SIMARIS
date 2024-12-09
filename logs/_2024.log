@@ -1,1 +1,6 @@
 2024-12-06 04:55:06 - INFO - User Login - username: adi, role: admin
+2024-12-08 20:58:46 - INFO - Patient Added to Queue - Name: adi, NIK: 1231231231231231, Umur: 20, Time: 12-08 20:58
+2024-12-08 20:58:52 - INFO - User Login - username: adi, role: admin
+2024-12-09 00:26:30 - INFO - User Login - username: dhani, role: dokter
+2024-12-09 00:26:35 - ERROR - Unexpected Error: cannot access local variable 'pasien' where it is not associated with a value
+2024-12-09 00:40:19 - INFO - User Login - username: dhani, role: dokter
